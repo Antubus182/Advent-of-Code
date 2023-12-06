@@ -37,7 +37,10 @@ func main() {
 		}
 	}
 	//fmt.Println(PossibleGames)
+	fmt.Print("Sum of id's of possible games part 1: ")
 	fmt.Println(GameSum(PossibleGames))
+	fmt.Print("Minimum Power of all games: ")
+	fmt.Println(GamePower(Gameset))
 }
 
 func getInput(file string) string {
@@ -97,4 +100,13 @@ func GameSum(GameSet []Game) int {
 		sum = sum + p.GameId
 	}
 	return sum
+}
+
+func GamePower(GameSet []Game) int {
+	Tpower := 0
+	for _, game := range GameSet {
+		power := game.Redmax * game.Greenmax * game.Bluemax
+		Tpower += power
+	}
+	return Tpower
 }
